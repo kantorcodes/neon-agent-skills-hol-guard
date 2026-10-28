@@ -24,7 +24,7 @@ hol-guard detect --json
 
 Use the exact harness identifier returned by `hol-guard detect --json`. Do not guess a harness name.
 
-Then let Guard own the harness integration and launch path:
+For a supported harness other than Hermes, let Guard own the integration and launch path:
 
 ```bash
 hol-guard bootstrap
@@ -33,6 +33,8 @@ hol-guard run <harness> --dry-run
 hol-guard run <harness>
 hol-guard doctor <harness> --json
 ```
+
+For Hermes, use `hol-guard hermes bootstrap` instead of `hol-guard install hermes`; the Hermes integration has a dedicated bootstrap path. Verify it with `hol-guard doctor hermes --json` before any Neon mutation.
 
 Do not claim the session is protected unless Guard status or doctor output proves it. If Guard cannot protect the current harness, stop before production-impacting Neon changes rather than silently continuing in an unprotected agent session.
 
